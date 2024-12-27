@@ -14,6 +14,12 @@ struct RUIKitExampleViewsList: View {
                 NavigationLink("RUICircularProgressView") {
                     RUICircularProgressViewExample()
                 }
+                NavigationLink("RUIProgressView") {
+                    RUIProgressViewExample()
+                }
+                NavigationLink("RUISlider") {
+                    RUISliderExample()
+                }
             }
             .navigationTitle("RUIKit Examples")
         }
