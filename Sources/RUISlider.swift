@@ -26,6 +26,9 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     private let thumbColor: Color
     private let thumbShape: ThumbShape
     
+    // Value Label
+    private let showValueLabel: Bool
+    
     /// The completed fraction of the item represented by the slider view, from 0.0 (not yet started) to 1.0 (fully complete).
     private var fractionCompleted: CGFloat {
         return (value - bounds.lowerBound) / bounds.span
@@ -40,7 +43,8 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         backgroundTrackColor: Color = .gray.opacity(0.3),
         trackShape: TrackShape = RoundedRectangle(cornerRadius: 10),
         thumbColor: Color = .white,
-        thumbShape: ThumbShape = Circle()
+        thumbShape: ThumbShape = Circle(),
+        showValueLabel: Bool = false
     ) {
         self._value = value
         self.bounds = bounds
@@ -50,6 +54,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         self.trackShape = trackShape
         self.thumbColor = thumbColor.opaque() // Ensure thumb is always opaque
         self.thumbShape = thumbShape
+        self.showValueLabel = showValueLabel
     }
     
     // MARK: Body
@@ -70,6 +75,15 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
 
                 // Thumb view
                 thumbShape
+                    .overlay {
+                        // Value label
+                        if showValueLabel {
+                            Text(String(format: "%.1f", value))
+                                .foregroundStyle(.black)
+                                .fixedSize()
+                                .offset(y: 32)
+                        }
+                    }
                     .frame(width: defaultThumbSize.width, height: defaultThumbSize.height)
                     .offset(x: fractionCompleted * availableWidth - defaultThumbSize.width / 2)
                     .foregroundColor(thumbColor)

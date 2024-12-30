@@ -25,6 +25,9 @@ public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View
     private let thumbColor: Color
     private let thumbShape: ThumbShape
     
+    // Value Label
+    private let showValueLabel: Bool
+    
     /// The completed fraction of the item represented by the slider view, from 0.0 (not yet started) to 1.0 (fully complete).
     private var fractionCompleted: CGFloat {
         return (value - bounds.lowerBound) / bounds.span
@@ -39,7 +42,8 @@ public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View
         foregroundColor: Color = .blue,
         backgroundColor: Color = .gray.opacity(0.3),
         thumbColor: Color = .white,
-        thumbShape: ThumbShape = Circle()
+        thumbShape: ThumbShape = Circle(),
+        showValueLabel: Bool = false
     ) {
         self._value = value
         self.bounds = bounds
@@ -49,6 +53,7 @@ public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View
         self.backgroundColor = backgroundColor
         self.thumbColor = thumbColor
         self.thumbShape = thumbShape
+        self.showValueLabel = showValueLabel
     }
 
     // MARK: Body
@@ -59,17 +64,26 @@ public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View
             ZStack(alignment: .leading) {
                 // Background track
                 shape
-                    .fill(backgroundColor)
+                    .foregroundStyle(backgroundColor)
                     .frame(height: height)
 
                 // Foreground track
                 shape
-                    .fill(foregroundColor)
+                    .foregroundStyle(foregroundColor)
                     .frame(width: availableWidth * fractionCompleted + height, height: height)
 
                 // Thumb
                 thumbShape
-                    .fill(thumbColor)
+                    .overlay {
+                        // Value label
+                        if showValueLabel {
+                            Text(String(format: "%.1f", value))
+                                .foregroundStyle(.black)
+                                .fixedSize()
+                                .offset(y: 32)
+                        }
+                    }
+                    .foregroundStyle(thumbColor)
                     .shadow(radius: 5, y: 4)
                     .frame(width: height, height: height)
                     .offset(x: fractionCompleted * availableWidth)
