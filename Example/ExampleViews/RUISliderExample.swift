@@ -11,20 +11,28 @@ import SwiftUI
 struct RUISliderExample: View {
     @State var value: CGFloat = 0
     @State var trackHeight: CGFloat = 4
+    @State var showValueLabel: Bool = false
+    @State var foregroundTrackColor: Color = .blue
+    @State var backgroundTrackColor: Color = .gray.opacity(0.3)
     
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
             RUISlider(
                 value: $value,
                 in: 0...100,
-                trackHeight: trackHeight
+                trackHeight: trackHeight,
+                foregroundTrackColor: foregroundTrackColor,
+                backgroundTrackColor: backgroundTrackColor,
+                showValueLabel: showValueLabel
             )
             
             VStack(spacing: 20) {
                 trackHeightSlider
+                valueLabelToggle
+                foregroundTrackColorPicker
+                backgroundTrackColorPicker
             }
         }
-        .frame(width: 300)
         .padding()
         
         
@@ -42,6 +50,18 @@ struct RUISliderExample: View {
                 Text("40")
             }
         }
+    }
+    
+    private var valueLabelToggle: some View {
+        Toggle("Show Value Label", isOn: $showValueLabel)
+    }
+    
+    private var foregroundTrackColorPicker: some View {
+        ColorPicker("Foreground Track Color", selection: $foregroundTrackColor)
+    }
+    
+    private var backgroundTrackColorPicker: some View {
+        ColorPicker("Background Track Color", selection: $backgroundTrackColor)
     }
 }
 

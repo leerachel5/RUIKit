@@ -38,11 +38,11 @@ public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View
         value: Binding<CGFloat>,
         in bounds: ClosedRange<CGFloat> = 0...1,
         height: CGFloat = 26,
-        shape: TrackShape = RoundedRectangle(cornerRadius: 13),
+        shape: TrackShape = Rectangle(),
         foregroundColor: Color = .blue,
         backgroundColor: Color = .gray.opacity(0.3),
         thumbColor: Color = .white,
-        thumbShape: ThumbShape = Circle(),
+        thumbShape: ThumbShape = Rectangle(),
         showValueLabel: Bool = false
     ) {
         self._value = value

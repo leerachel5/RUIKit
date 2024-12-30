@@ -19,7 +19,7 @@ struct RUICircularProgressViewExample: View {
                 .padding(.bottom, 20)
             progressSlider
             lineWidthSlider
-            backgroundColorSlider
+            backgroundColorPicker
                 .padding(.top, 12)
         }
         .frame(width: 300)
@@ -61,7 +61,7 @@ struct RUICircularProgressViewExample: View {
         }
     }
     
-    private var backgroundColorSlider: some View {
+    private var backgroundColorPicker: some View {
         ColorPicker("Background Circle Color", selection: $backgroundColor)
     }
 }
