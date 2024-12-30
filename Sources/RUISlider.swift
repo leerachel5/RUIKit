@@ -7,14 +7,24 @@
 
 import SwiftUI
 
-public struct RUISlider: View {
+public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     // MARK: Default Configurations
     private let defaultThumbSize = CGSize(width: 26, height: 26)
     
     // MARK: Instance Properties
+    // Progress
     @Binding private var value: CGFloat
     private let bounds: ClosedRange<CGFloat>
+    
+    // Track
     private let trackHeight: CGFloat
+    private let foregroundTrackColor: Color
+    private let backgroundTrackColor: Color
+    private let trackShape: TrackShape
+    
+    // Thumb
+    private let thumbColor: Color
+    private let thumbShape: ThumbShape
     
     /// The completed fraction of the item represented by the slider view, from 0.0 (not yet started) to 1.0 (fully complete).
     private var fractionCompleted: CGFloat {
@@ -25,11 +35,21 @@ public struct RUISlider: View {
     public init(
         value: Binding<CGFloat>,
         in bounds: ClosedRange<CGFloat> = 0...1,
-        trackHeight: CGFloat = 4
+        trackHeight: CGFloat = 20,
+        foregroundTrackColor: Color = .blue,
+        backgroundTrackColor: Color = .gray.opacity(0.3),
+        trackShape: TrackShape = RoundedRectangle(cornerRadius: 10),
+        thumbColor: Color = .white,
+        thumbShape: ThumbShape = Circle()
     ) {
         self._value = value
         self.bounds = bounds
         self.trackHeight = trackHeight
+        self.foregroundTrackColor = foregroundTrackColor
+        self.backgroundTrackColor = backgroundTrackColor
+        self.trackShape = trackShape
+        self.thumbColor = thumbColor.opaque() // Ensure thumb is always opaque
+        self.thumbShape = thumbShape
     }
     
     // MARK: Body
@@ -39,13 +59,20 @@ public struct RUISlider: View {
 
             ZStack(alignment: .leading) {
                 // Track view
-                RUIProgressView(value: value, in: bounds, height: trackHeight)
+                RUIProgressView(
+                    value: value,
+                    in: bounds,
+                    height: trackHeight,
+                    shape: trackShape,
+                    foregroundColor: foregroundTrackColor,
+                    backgroundColor: backgroundTrackColor
+                )
 
                 // Thumb view
-                Circle()
+                thumbShape
                     .frame(width: defaultThumbSize.width, height: defaultThumbSize.height)
                     .offset(x: fractionCompleted * availableWidth - defaultThumbSize.width / 2)
-                    .foregroundColor(.white.opacity(0.40))
+                    .foregroundColor(thumbColor)
                     .shadow(radius: 4, y: 2)
                     .gesture(
                         DragGesture(minimumDistance: 0.01)

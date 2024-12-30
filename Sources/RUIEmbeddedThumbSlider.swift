@@ -9,11 +9,21 @@ import SwiftUI
 
 import SwiftUI
 
-public struct RUIEmbeddedThumbSlider: View {
+public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View {
     // MARK: InstanceProperties
+    // Progress
     @Binding var value: CGFloat
     private let bounds: ClosedRange<CGFloat>
+    
+    // Track
     private let height: CGFloat
+    private let shape: TrackShape
+    private let foregroundColor: Color
+    private let backgroundColor: Color
+    
+    // Thumb
+    private let thumbColor: Color
+    private let thumbShape: ThumbShape
     
     /// The completed fraction of the item represented by the slider view, from 0.0 (not yet started) to 1.0 (fully complete).
     private var fractionCompleted: CGFloat {
@@ -24,11 +34,21 @@ public struct RUIEmbeddedThumbSlider: View {
     public init(
         value: Binding<CGFloat>,
         in bounds: ClosedRange<CGFloat> = 0...1,
-        height: CGFloat = 26
+        height: CGFloat = 26,
+        shape: TrackShape = RoundedRectangle(cornerRadius: 13),
+        foregroundColor: Color = .blue,
+        backgroundColor: Color = .gray.opacity(0.3),
+        thumbColor: Color = .white,
+        thumbShape: ThumbShape = Circle()
     ) {
         self._value = value
         self.bounds = bounds
         self.height = height
+        self.shape = shape
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+        self.thumbColor = thumbColor
+        self.thumbShape = thumbShape
     }
 
     // MARK: Body
@@ -37,19 +57,19 @@ public struct RUIEmbeddedThumbSlider: View {
             let availableWidth = geometry.size.width - height
 
             ZStack(alignment: .leading) {
-                // Track
-                RoundedRectangle(cornerRadius: height / 2)
-                    .fill(.gray.opacity(0.3))
+                // Background track
+                shape
+                    .fill(backgroundColor)
                     .frame(height: height)
 
-                // Progress
-                RoundedRectangle(cornerRadius: height / 2)
-                    .fill(.blue)
+                // Foreground track
+                shape
+                    .fill(foregroundColor)
                     .frame(width: availableWidth * fractionCompleted + height, height: height)
 
                 // Thumb
-                Circle()
-                    .fill(.white.opacity(0.5))
+                thumbShape
+                    .fill(thumbColor)
                     .shadow(radius: 5, y: 4)
                     .frame(width: height, height: height)
                     .offset(x: fractionCompleted * availableWidth)
