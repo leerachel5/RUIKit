@@ -75,6 +75,8 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
 
                 // Thumb view
                 thumbShape
+                    .foregroundColor(thumbColor)
+                    .shadow(radius: 4, y: 2)
                     .overlay {
                         // Value label
                         if showValueLabel {
@@ -86,8 +88,6 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
                     }
                     .frame(width: defaultThumbSize.width, height: defaultThumbSize.height)
                     .offset(x: fractionCompleted * availableWidth - defaultThumbSize.width / 2)
-                    .foregroundColor(thumbColor)
-                    .shadow(radius: 4, y: 2)
                     .gesture(
                         DragGesture(minimumDistance: 0.01)
                             .onChanged { dragValue in

@@ -74,6 +74,8 @@ public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View
 
                 // Thumb
                 thumbShape
+                    .foregroundStyle(thumbColor)
+                    .shadow(radius: 5, y: 4)
                     .overlay {
                         // Value label
                         if showValueLabel {
@@ -83,8 +85,6 @@ public struct RUIEmbeddedThumbSlider<TrackShape: Shape, ThumbShape: Shape>: View
                                 .offset(y: 32)
                         }
                     }
-                    .foregroundStyle(thumbColor)
-                    .shadow(radius: 5, y: 4)
                     .frame(width: height, height: height)
                     .offset(x: fractionCompleted * availableWidth)
                     .gesture(
