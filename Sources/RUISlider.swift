@@ -18,7 +18,7 @@ public struct RUISlider: View {
     
     /// The completed fraction of the item represented by the slider view, from 0.0 (not yet started) to 1.0 (fully complete).
     private var fractionCompleted: CGFloat {
-        return scale(value, in: bounds, to: 0...1)
+        return (value - bounds.lowerBound) / bounds.span
     }
     
     // MARK: Initializer
@@ -39,7 +39,7 @@ public struct RUISlider: View {
 
             ZStack(alignment: .leading) {
                 // Track view
-                RUIProgressView(progress: fractionCompleted, height: trackHeight)
+                RUIProgressView(value: value, in: bounds, height: trackHeight)
 
                 // Thumb view
                 Circle()
@@ -56,7 +56,7 @@ public struct RUISlider: View {
                                 
                                 // Update the value based on drag progress
                                 let progress = clampedLocation / availableWidth
-                                value = bounds.lowerBound + (bounds.upperBound - bounds.lowerBound) * progress
+                                value = bounds.lowerBound + bounds.span * progress
                             }
                     )
             }
@@ -65,16 +65,8 @@ public struct RUISlider: View {
         }
         .frame(height: max(defaultThumbSize.height, 4))
     }
-    
-    // MARK: Helpers
-    private func scale(_ value: CGFloat, in range: ClosedRange<CGFloat>, to targetRange: ClosedRange<CGFloat>) -> CGFloat {
-        let rangeSpan = range.upperBound - range.lowerBound
-        let targetRangeSpan = targetRange.upperBound - targetRange.lowerBound
-        
-        return value / rangeSpan * targetRangeSpan
-    }
 }
 
 #Preview {
-    RUISlider(value: .constant(0.5))
+    RUISlider(value: .constant(0.2))
 }

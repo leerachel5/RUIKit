@@ -13,6 +13,10 @@
 		2A5C90D12D1E967C00DDF96F /* RUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D02D1E967C00DDF96F /* RUIProgressView.swift */; };
 		2A5C90D42D1E9EE400DDF96F /* Comparable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D32D1E9EE400DDF96F /* Comparable+Extension.swift */; };
 		2A5C90D62D1EA6B900DDF96F /* RUIProgressViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D52D1EA6B900DDF96F /* RUIProgressViewExample.swift */; };
+		2A5C90DA2D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D92D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift */; };
+		2A5C90DC2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90DB2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift */; };
+		2A5C90DE2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90DD2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift */; };
+		2A5C90E02D2154DA00DDF96F /* ClosedRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90DF2D2154DA00DDF96F /* ClosedRange+Extension.swift */; };
 		2AB7B06B2D17DBBD00D64FA0 /* RUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */; };
 		2AB7B06C2D17DBBD00D64FA0 /* RUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AB7B0782D17DFC900D64FA0 /* RUICircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7B0752D17DFC900D64FA0 /* RUICircularProgressView.swift */; };
@@ -51,6 +55,10 @@
 		2A5C90D02D1E967C00DDF96F /* RUIProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIProgressView.swift; sourceTree = "<group>"; };
 		2A5C90D32D1E9EE400DDF96F /* Comparable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Extension.swift"; sourceTree = "<group>"; };
 		2A5C90D52D1EA6B900DDF96F /* RUIProgressViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIProgressViewExample.swift; sourceTree = "<group>"; };
+		2A5C90D92D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIEmbeddedThumbSlider.swift; sourceTree = "<group>"; };
+		2A5C90DB2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIEmbeddedThumbSliderExample.swift; sourceTree = "<group>"; };
+		2A5C90DD2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryFloatingPoint+Extension.swift"; sourceTree = "<group>"; };
+		2A5C90DF2D2154DA00DDF96F /* ClosedRange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Extension.swift"; sourceTree = "<group>"; };
 		2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AB7B05B2D17DB7400D64FA0 /* RUIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RUIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AB7B0752D17DFC900D64FA0 /* RUICircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUICircularProgressView.swift; sourceTree = "<group>"; };
@@ -81,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				2A59DB8E2D1949E5003E0D44 /* RUICircularProgressViewExample.swift */,
+				2A5C90DB2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift */,
 				2A5C90D52D1EA6B900DDF96F /* RUIProgressViewExample.swift */,
 				2A59DB922D1B61B9003E0D44 /* RUISliderExample.swift */,
 			);
@@ -91,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				2A5C90D32D1E9EE400DDF96F /* Comparable+Extension.swift */,
+				2A5C90DD2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift */,
+				2A5C90DF2D2154DA00DDF96F /* ClosedRange+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -125,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				2AB7B0752D17DFC900D64FA0 /* RUICircularProgressView.swift */,
+				2A5C90D92D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift */,
 				2A5C90D02D1E967C00DDF96F /* RUIProgressView.swift */,
 				2A59DB902D1B5E1E003E0D44 /* RUISlider.swift */,
 				2A5C90D22D1E9EC600DDF96F /* Utility */,
@@ -253,8 +265,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AB7B0782D17DFC900D64FA0 /* RUICircularProgressView.swift in Sources */,
+				2A5C90DE2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift in Sources */,
 				2A59DB912D1B5E1E003E0D44 /* RUISlider.swift in Sources */,
 				2A5C90D12D1E967C00DDF96F /* RUIProgressView.swift in Sources */,
+				2A5C90DA2D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift in Sources */,
+				2A5C90E02D2154DA00DDF96F /* ClosedRange+Extension.swift in Sources */,
 				2A5C90D42D1E9EE400DDF96F /* Comparable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +280,7 @@
 			files = (
 				2A59DB952D1B61FD003E0D44 /* RUISliderExample.swift in Sources */,
 				2AB7B0912D17E20700D64FA0 /* RUIKitExampleApp.swift in Sources */,
+				2A5C90DC2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift in Sources */,
 				2A59DB8F2D1949E5003E0D44 /* RUICircularProgressViewExample.swift in Sources */,
 				2A5C90D62D1EA6B900DDF96F /* RUIProgressViewExample.swift in Sources */,
 				2AB7B0902D17E20300D64FA0 /* RUIKitExampleViewsList.swift in Sources */,

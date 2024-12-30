@@ -26,6 +26,8 @@ struct RUISliderExample: View {
         }
         .frame(width: 300)
         .padding()
+        
+        
     }
     
     private var trackHeightSlider: some View {

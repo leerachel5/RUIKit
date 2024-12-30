@@ -9,31 +9,42 @@ import SwiftUI
 
 public struct RUIProgressView<BackgroundShape: Shape, ForegroundShape: Shape>: View {
     // MARK: Instance Properties
-    private let progress: CGFloat // Progress as a value between 0 and 1
+    private var value: CGFloat
+    private let bounds: ClosedRange<CGFloat>
+    
     private let backgroundTrack: Track<BackgroundShape>
     private let foregroundTrack: Track<ForegroundShape>
     
     private var height: CGFloat { max(backgroundTrack.height, foregroundTrack.height) }
+    
+    /// The completed fraction of the task represented by the progress view, from 0.0 (not yet started) to 1.0 (fully complete).
+    private var fractionCompleted: CGFloat {
+        return value.scaled(from: bounds.upperBound - bounds.lowerBound, to: 1).clamped(to: 0...1)
+    }
 
     // MARK: Initializers
     public init(
-        progress: CGFloat,
+        value: CGFloat,
+        in bounds: ClosedRange<CGFloat> = 0...1,
         backgroundTrack: Track<BackgroundShape>,
         foregroundTrack: Track<ForegroundShape>
     ) {
-        self.progress = progress
+        self.value = value
+        self.bounds = bounds
         self.backgroundTrack = backgroundTrack
         self.foregroundTrack = foregroundTrack
     }
     
     // Convenience initializer with default tracks
     public init(
-        progress: CGFloat,
+        value: CGFloat,
+        in bounds: ClosedRange<CGFloat> = 0...1,
         height: CGFloat = 4,
         foregroundColor: Color = .blue
     ) where BackgroundShape == Rectangle, ForegroundShape == Rectangle {
         self.init(
-            progress: progress,
+            value: value,
+            in: bounds,
             backgroundTrack: Track(height: height),
             foregroundTrack: Track(height: height, color: foregroundColor)
         )
@@ -42,7 +53,7 @@ public struct RUIProgressView<BackgroundShape: Shape, ForegroundShape: Shape>: V
     // MARK: Body
     public var body: some View {
         GeometryReader { geometry in
-            track(progress: progress, in: geometry.size.width)
+            track(progress: fractionCompleted.clamped(to: 0...1), in: geometry.size.width)
                 .frame(width: geometry.size.width)
                 .frame(maxWidth: .infinity)
         }
@@ -84,6 +95,6 @@ extension RUIProgressView {
 }
 
 #Preview {
-    RUIProgressView(progress: 0.5)
+    RUIProgressView(value: 0.5)
 }
 
