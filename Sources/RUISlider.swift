@@ -8,9 +8,6 @@
 import SwiftUI
 
 public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
-    // MARK: Default Configurations
-    private let defaultThumbSize = CGSize(width: 26, height: 26)
-    
     // MARK: Instance Properties
     // Progress
     @Binding private var value: CGFloat
@@ -22,6 +19,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     
     // Thumb
     private let thumbColor: Color
+    private let thumbSize: CGSize
     private let thumbShape: ThumbShape
     
     // Value Label
@@ -39,6 +37,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         trackHeight: CGFloat = 20,
         trackShape: TrackShape = RoundedRectangle(cornerRadius: 10),
         thumbColor: Color = .white,
+        thumbSize: CGSize = CGSize(width: 26, height: 26),
         thumbShape: ThumbShape = Circle(),
         showValueLabel: Bool = false
     ) {
@@ -47,6 +46,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         self.trackHeight = trackHeight
         self.trackShape = trackShape
         self.thumbColor = thumbColor.opaque() // Ensure thumb is always opaque
+        self.thumbSize = thumbSize
         self.thumbShape = thumbShape
         self.showValueLabel = showValueLabel
     }
@@ -54,7 +54,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     // MARK: Body
     public var body: some View {
         GeometryReader { geometry in
-            let availableWidth = geometry.size.width - defaultThumbSize.width
+            let availableWidth = geometry.size.width - thumbSize.width
 
             ZStack(alignment: .leading) {
                 // Track view
@@ -78,8 +78,8 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
                                 .offset(y: 32)
                         }
                     }
-                    .frame(width: defaultThumbSize.width, height: defaultThumbSize.height)
-                    .offset(x: fractionCompleted * availableWidth - defaultThumbSize.width / 2)
+                    .frame(width: thumbSize.width, height: thumbSize.height)
+                    .offset(x: fractionCompleted * availableWidth - thumbSize.width / 2)
                     .gesture(
                         DragGesture(minimumDistance: 0.01)
                             .onChanged { dragValue in
@@ -96,7 +96,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
             .frame(width: availableWidth)
             .frame(maxWidth: .infinity)
         }
-        .frame(height: max(defaultThumbSize.height, 4))
+        .frame(height: max(thumbSize.height, 4))
     }
 }
 
