@@ -18,8 +18,6 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     
     // Track
     private let trackHeight: CGFloat
-    private let foregroundTrackColor: Color
-    private let backgroundTrackColor: Color
     private let trackShape: TrackShape
     
     // Thumb
@@ -39,8 +37,6 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         value: Binding<CGFloat>,
         in bounds: ClosedRange<CGFloat> = 0...1,
         trackHeight: CGFloat = 20,
-        foregroundTrackColor: Color = .blue,
-        backgroundTrackColor: Color = .gray.opacity(0.3),
         trackShape: TrackShape = RoundedRectangle(cornerRadius: 10),
         thumbColor: Color = .white,
         thumbShape: ThumbShape = Circle(),
@@ -49,8 +45,6 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         self._value = value
         self.bounds = bounds
         self.trackHeight = trackHeight
-        self.foregroundTrackColor = foregroundTrackColor
-        self.backgroundTrackColor = backgroundTrackColor
         self.trackShape = trackShape
         self.thumbColor = thumbColor.opaque() // Ensure thumb is always opaque
         self.thumbShape = thumbShape
@@ -68,9 +62,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
                     value: value,
                     in: bounds,
                     height: trackHeight,
-                    shape: trackShape,
-                    foregroundColor: foregroundTrackColor,
-                    backgroundColor: backgroundTrackColor
+                    shape: trackShape
                 )
 
                 // Thumb view

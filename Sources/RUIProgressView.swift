@@ -14,8 +14,6 @@ public struct RUIProgressView<S: Shape>: View {
     
     private let height: CGFloat
     private let shape: S
-    private let foregroundColor: Color
-    private let backgroundColor: Color
     
     /// The completed fraction of the task represented by the progress view, from 0.0 (not yet started) to 1.0 (fully complete).
     private var fractionCompleted: CGFloat {
@@ -27,16 +25,12 @@ public struct RUIProgressView<S: Shape>: View {
         value: CGFloat,
         in bounds: ClosedRange<CGFloat> = 0...1,
         height: CGFloat = 4,
-        shape: S = Rectangle(),
-        foregroundColor: Color = .blue,
-        backgroundColor: Color = .gray.opacity(0.3)
+        shape: S = Rectangle()
     ) {
         self.value = value
         self.bounds = bounds
         self.height = height
         self.shape = shape
-        self.foregroundColor = foregroundColor
-        self.backgroundColor = backgroundColor
     }
 
     // MARK: Body
@@ -54,11 +48,11 @@ public struct RUIProgressView<S: Shape>: View {
         ZStack(alignment: .leading) {
             // Background track
             shape
-                .foregroundStyle(backgroundColor)
+                .foregroundStyle(Color(white: 0.9))
 
             // Foreground track
             shape
-                .foregroundStyle(foregroundColor)
+                .foregroundStyle(.tint)
                 .frame(width: width * progress)
         }
     }
@@ -66,5 +60,6 @@ public struct RUIProgressView<S: Shape>: View {
 
 #Preview {
     RUIProgressView(value: 0.5)
+        .tint(.green)
 }
 

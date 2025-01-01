@@ -9,11 +9,11 @@ import RUIKit
 import SwiftUI
 
 struct RUIEmbeddedThumbSliderExample: View {
-    @State var value: CGFloat = 0
+    @State var value: CGFloat = 50
     @State var trackHeight: CGFloat = 26
     @State var showValueLabel: Bool = false
     @State var foregroundTrackColor: Color = .blue
-    @State var backgroundTrackColor: Color = .gray.opacity(0.3)
+    @State var thumbColor: Color = .white
     
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
@@ -22,17 +22,17 @@ struct RUIEmbeddedThumbSliderExample: View {
                 in: 0...100,
                 height: trackHeight,
                 shape: RoundedRectangle(cornerRadius: trackHeight / 2),
-                foregroundColor: foregroundTrackColor,
-                backgroundColor: backgroundTrackColor,
+                thumbColor: thumbColor,
                 thumbShape: RoundedRectangle(cornerRadius: trackHeight / 2),
                 showValueLabel: showValueLabel
             )
+            .tint(foregroundTrackColor)
             
             VStack(spacing: 20) {
                 trackHeightSlider
                 valueLabelToggle
                 foregroundTrackColorPicker
-                backgroundTrackColorPicker
+                thumbColorPicker
             }
         }
         .padding()
@@ -60,8 +60,8 @@ struct RUIEmbeddedThumbSliderExample: View {
         ColorPicker("Foreground Track Color", selection: $foregroundTrackColor)
     }
     
-    private var backgroundTrackColorPicker: some View {
-        ColorPicker("Background Track Color", selection: $backgroundTrackColor)
+    private var thumbColorPicker: some View {
+        ColorPicker("Thumb Color", selection: $thumbColor)
     }
 }
 
