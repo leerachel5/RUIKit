@@ -15,6 +15,7 @@ struct RUIKitExampleApp: App {
         WindowGroup {
             RUIKitExampleViewsList()
                 .environmentObject(themeManager)
+                .setTheme(themeManager.selectedTheme)
         }
     }
 }

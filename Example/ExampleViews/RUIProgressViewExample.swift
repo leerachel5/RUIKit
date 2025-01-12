@@ -11,7 +11,6 @@ import SwiftUI
 struct RUIProgressViewExample: View {
     @State var value: CGFloat = 0.5
     @State var height: CGFloat = 4
-    @State var foregroundTrackColor: Color = .blue
     
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
@@ -20,12 +19,10 @@ struct RUIProgressViewExample: View {
                 in: 0...1,
                 height: height
             )
-            .tint(foregroundTrackColor)
             
             VStack(spacing: 20) {
                 valueInputTextField
                 heightSlider
-                foregroundTrackColorPicker
             }
         }
         .frame(width: 300)
@@ -54,10 +51,6 @@ struct RUIProgressViewExample: View {
                 Text("40")
             }
         }
-    }
-    
-    private var foregroundTrackColorPicker: some View {
-        ColorPicker("Foreground Track Color", selection: $foregroundTrackColor)
     }
     
     private var floatFormatter: NumberFormatter {

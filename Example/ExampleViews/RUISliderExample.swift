@@ -12,8 +12,6 @@ struct RUISliderExample: View {
     @State var value: CGFloat = 50
     @State var trackHeight: CGFloat = 4
     @State var showValueLabel: Bool = false
-    @State var foregroundTrackColor: Color = .blue
-    @State var thumbColor: Color = .white
     
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
@@ -21,16 +19,12 @@ struct RUISliderExample: View {
                 value: $value,
                 in: 0...100,
                 trackHeight: trackHeight,
-                thumbColor: thumbColor,
                 showValueLabel: showValueLabel
             )
-            .tint(foregroundTrackColor)
             
             VStack(spacing: 20) {
                 trackHeightSlider
                 valueLabelToggle
-                foregroundTrackColorPicker
-                thumbColorPicker
             }
         }
         .padding()
@@ -54,20 +48,5 @@ struct RUISliderExample: View {
     
     private var valueLabelToggle: some View {
         Toggle("Show Value Label", isOn: $showValueLabel)
-    }
-    
-    private var foregroundTrackColorPicker: some View {
-        ColorPicker("Foreground Track Color", selection: $foregroundTrackColor)
-    }
-    
-    private var thumbColorPicker: some View {
-        ColorPicker("Thumb Color", selection: $thumbColor)
-    }
-}
-
-struct SliderExample: View {
-    @State var value: Double = 0
-    var body: some View {
-        Slider(value: $value)
     }
 }

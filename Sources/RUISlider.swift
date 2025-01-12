@@ -5,6 +5,7 @@
 //  Created by Rachel Lee on 12/24/24.
 //
 
+import RThemeEngine
 import SwiftUI
 
 public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
@@ -18,7 +19,6 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     private let trackShape: TrackShape
     
     // Thumb
-    private let thumbColor: Color
     private let thumbSize: CGSize
     private let thumbShape: ThumbShape
     
@@ -36,7 +36,6 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         in bounds: ClosedRange<CGFloat> = 0...1,
         trackHeight: CGFloat = 20,
         trackShape: TrackShape = RoundedRectangle(cornerRadius: 10),
-        thumbColor: Color = .white,
         thumbSize: CGSize = CGSize(width: 26, height: 26),
         thumbShape: ThumbShape = Circle(),
         showValueLabel: Bool = false
@@ -45,7 +44,6 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
         self.bounds = bounds
         self.trackHeight = trackHeight
         self.trackShape = trackShape
-        self.thumbColor = thumbColor.opaque() // Ensure thumb is always opaque
         self.thumbSize = thumbSize
         self.thumbShape = thumbShape
         self.showValueLabel = showValueLabel
@@ -54,7 +52,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     // MARK: Body
     public var body: some View {
         GeometryReader { geometry in
-            let availableWidth = geometry.size.width - thumbSize.width
+            let availableWidth = max(geometry.size.width - thumbSize.width, 0)
 
             ZStack(alignment: .leading) {
                 // Track view
@@ -67,13 +65,12 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
 
                 // Thumb view
                 thumbShape
-                    .foregroundColor(thumbColor)
+                    .foregroundColor(.white)
                     .shadow(radius: 4, y: 2)
                     .overlay {
                         // Value label
                         if showValueLabel {
                             Text(String(format: "%.1f", value))
-                                .foregroundStyle(.black)
                                 .fixedSize()
                                 .offset(y: 32)
                         }
@@ -100,6 +97,11 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     }
 }
 
-#Preview {
-    RUISlider(value: .constant(0.2))
+struct RUISlider_Previews: PreviewProvider {
+    static var previews: some View {
+        let themeManager = ThemeManager()
+        RUISlider(value: .constant(0.5))
+            .environmentObject(themeManager)
+            .setTheme(themeManager.selectedTheme)
+    }
 }

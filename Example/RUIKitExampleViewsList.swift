@@ -61,6 +61,7 @@ struct RUIKitExampleViewsList: View {
         }) {
             Image(systemName: "gearshape")
         }
+        .foregroundStyle(Color.accentColor)
     }
 }
 
@@ -69,5 +70,6 @@ struct RUIKitExampleViewsList_Previews: PreviewProvider {
         let themeManager = ThemeManager()
         RUIKitExampleViewsList()
             .environmentObject(themeManager)
+            .setTheme(themeManager.selectedTheme)
     }
 }

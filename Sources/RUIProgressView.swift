@@ -5,9 +5,16 @@
 //  Created by Rachel Lee on 12/27/24.
 //
 
+import RThemeEngine
 import SwiftUI
 
 public struct RUIProgressView<S: Shape>: View {
+    // MARK: Theme Manager
+    @EnvironmentObject private var themeManager: ThemeManager
+    private var theme: ThemeProtocol {
+        themeManager.selectedTheme
+    }
+    
     // MARK: Instance Properties
     private var value: CGFloat
     private let bounds: ClosedRange<CGFloat>
@@ -48,18 +55,21 @@ public struct RUIProgressView<S: Shape>: View {
         ZStack(alignment: .leading) {
             // Background track
             shape
-                .foregroundStyle(Color(white: 0.9))
+                .fill(Color(.secondarySystemBackground))
 
             // Foreground track
             shape
-                .foregroundStyle(.tint)
+                .fill(Color.accentColor)
                 .frame(width: width * progress)
         }
     }
 }
 
-#Preview {
-    RUIProgressView(value: 0.5)
-        .tint(.green)
+struct RUIProgressView_Previews: PreviewProvider {
+    static var previews: some View {
+        let themeManager = ThemeManager()
+        RUIProgressView(value: 0.5)
+            .environmentObject(themeManager)
+            .setTheme(themeManager.selectedTheme)
+    }
 }
-

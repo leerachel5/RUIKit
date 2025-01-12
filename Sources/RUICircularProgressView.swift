@@ -10,7 +10,12 @@ import SwiftUI
 
 // MARK: - RUICircularProgressView
 public struct RUICircularProgressView<Content: View>: View {
-    @EnvironmentObject var themeManager: ThemeManager
+    // MARK: Theme Manager
+    @EnvironmentObject private var themeManager: ThemeManager
+    private var theme: ThemeProtocol {
+        themeManager.selectedTheme
+    }
+    
     @Binding private var progress: Double // Progress as a Double between 0 and 1
     private var lineWidth: CGFloat
     private var colors: [Color]
@@ -58,7 +63,7 @@ public struct RUICircularProgressView<Content: View>: View {
     // MARK: - Helper Views for RUICircularProgressView
     private var backgroundCircle: some View {
         Circle()
-            .strokeBorder(themeManager.selectedTheme.surfaceColor, style: strokeStyle)
+            .strokeBorder(Color(.secondarySystemBackground), style: strokeStyle)
     }
     
     private var progressCircle: some View {
@@ -73,7 +78,6 @@ public struct RUICircularProgressView<Content: View>: View {
     private func contentOverlay(diameter: CGFloat, contentWidth: CGFloat) -> some View {
         content
             .font(.system(size: diameter * 0.5))
-            .foregroundColor(.black)
             .frame(width: contentWidth, height: contentWidth, alignment: .center)
     }
 }
@@ -112,5 +116,6 @@ struct RUICircularProgressView_Previews: PreviewProvider {
             Text("👕")
         }
         .environmentObject(themeManager)
+        .setTheme(themeManager.selectedTheme)
     }
 }
