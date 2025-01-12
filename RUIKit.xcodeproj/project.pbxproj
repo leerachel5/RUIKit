@@ -7,65 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A59DB8F2D1949E5003E0D44 /* RUICircularProgressViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59DB8E2D1949E5003E0D44 /* RUICircularProgressViewExample.swift */; };
-		2A59DB912D1B5E1E003E0D44 /* RUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59DB902D1B5E1E003E0D44 /* RUISlider.swift */; };
-		2A59DB952D1B61FD003E0D44 /* RUISliderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59DB922D1B61B9003E0D44 /* RUISliderExample.swift */; };
-		2A5C90D12D1E967C00DDF96F /* RUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D02D1E967C00DDF96F /* RUIProgressView.swift */; };
-		2A5C90D42D1E9EE400DDF96F /* Comparable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D32D1E9EE400DDF96F /* Comparable+Extension.swift */; };
-		2A5C90D62D1EA6B900DDF96F /* RUIProgressViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D52D1EA6B900DDF96F /* RUIProgressViewExample.swift */; };
-		2A5C90DA2D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90D92D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift */; };
-		2A5C90DC2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90DB2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift */; };
-		2A5C90DE2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90DD2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift */; };
-		2A5C90E02D2154DA00DDF96F /* ClosedRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90DF2D2154DA00DDF96F /* ClosedRange+Extension.swift */; };
-		2A5C90E22D22634A00DDF96F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C90E12D22634A00DDF96F /* Color+Extension.swift */; };
-		2AB7B06B2D17DBBD00D64FA0 /* RUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */; };
-		2AB7B06C2D17DBBD00D64FA0 /* RUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2AB7B0782D17DFC900D64FA0 /* RUICircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7B0752D17DFC900D64FA0 /* RUICircularProgressView.swift */; };
-		2AB7B0902D17E20300D64FA0 /* RUIKitExampleViewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7B0872D17E04500D64FA0 /* RUIKitExampleViewsList.swift */; };
-		2AB7B0912D17E20700D64FA0 /* RUIKitExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB7B0882D17E04500D64FA0 /* RUIKitExampleApp.swift */; };
+		2AA1671B2D33A014004D9DDD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA1670E2D33A014004D9DDD /* Colors.xcassets */; };
+		2AA1671C2D33A014004D9DDD /* BinaryFloatingPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167102D33A014004D9DDD /* BinaryFloatingPoint+Extension.swift */; };
+		2AA1671D2D33A014004D9DDD /* ClosedRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167112D33A014004D9DDD /* ClosedRange+Extension.swift */; };
+		2AA1671E2D33A014004D9DDD /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167122D33A014004D9DDD /* Color+Extension.swift */; };
+		2AA1671F2D33A014004D9DDD /* Comparable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167132D33A014004D9DDD /* Comparable+Extension.swift */; };
+		2AA167202D33A014004D9DDD /* RUICircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167152D33A014004D9DDD /* RUICircularProgressView.swift */; };
+		2AA167212D33A014004D9DDD /* RUIEmbeddedThumbSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167162D33A014004D9DDD /* RUIEmbeddedThumbSlider.swift */; };
+		2AA167222D33A014004D9DDD /* RUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167172D33A014004D9DDD /* RUIProgressView.swift */; };
+		2AA167232D33A014004D9DDD /* RUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA167182D33A014004D9DDD /* RUISlider.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2AB7B06D2D17DBBD00D64FA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2AB7B0422D17DB0B00D64FA0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2AB7B04A2D17DB0B00D64FA0;
-			remoteInfo = RUIKit;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		2AB7B06F2D17DBBD00D64FA0 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2AB7B06C2D17DBBD00D64FA0 /* RUIKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		2A59DB8E2D1949E5003E0D44 /* RUICircularProgressViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUICircularProgressViewExample.swift; sourceTree = "<group>"; };
-		2A59DB902D1B5E1E003E0D44 /* RUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUISlider.swift; sourceTree = "<group>"; };
-		2A59DB922D1B61B9003E0D44 /* RUISliderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUISliderExample.swift; sourceTree = "<group>"; };
-		2A5C90D02D1E967C00DDF96F /* RUIProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIProgressView.swift; sourceTree = "<group>"; };
-		2A5C90D32D1E9EE400DDF96F /* Comparable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Extension.swift"; sourceTree = "<group>"; };
-		2A5C90D52D1EA6B900DDF96F /* RUIProgressViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIProgressViewExample.swift; sourceTree = "<group>"; };
-		2A5C90D92D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIEmbeddedThumbSlider.swift; sourceTree = "<group>"; };
-		2A5C90DB2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIEmbeddedThumbSliderExample.swift; sourceTree = "<group>"; };
-		2A5C90DD2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BinaryFloatingPoint+Extension.swift"; sourceTree = "<group>"; };
-		2A5C90DF2D2154DA00DDF96F /* ClosedRange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Extension.swift"; sourceTree = "<group>"; };
-		2A5C90E12D22634A00DDF96F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AB7B05B2D17DB7400D64FA0 /* RUIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RUIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AB7B0752D17DFC900D64FA0 /* RUICircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUICircularProgressView.swift; sourceTree = "<group>"; };
-		2AB7B0872D17E04500D64FA0 /* RUIKitExampleViewsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUIKitExampleViewsList.swift; sourceTree = "<group>"; };
-		2AB7B0882D17E04500D64FA0 /* RUIKitExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUIKitExampleApp.swift; sourceTree = "<group>"; };
+		2AA1670C2D33A014004D9DDD /* RUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RUIKit.framework; path = "/Users/rachellee/Development/ios/frameworks/RUIKit/build/Debug-iphoneos/RUIKit.framework"; sourceTree = "<absolute>"; };
+		2AA1670D2D33A014004D9DDD /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		2AA1670E2D33A014004D9DDD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		2AA167102D33A014004D9DDD /* BinaryFloatingPoint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BinaryFloatingPoint+Extension.swift"; sourceTree = "<group>"; };
+		2AA167112D33A014004D9DDD /* ClosedRange+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Extension.swift"; sourceTree = "<group>"; };
+		2AA167122D33A014004D9DDD /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		2AA167132D33A014004D9DDD /* Comparable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comparable+Extension.swift"; sourceTree = "<group>"; };
+		2AA167152D33A014004D9DDD /* RUICircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUICircularProgressView.swift; sourceTree = "<group>"; };
+		2AA167162D33A014004D9DDD /* RUIEmbeddedThumbSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUIEmbeddedThumbSlider.swift; sourceTree = "<group>"; };
+		2AA167172D33A014004D9DDD /* RUIProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUIProgressView.swift; sourceTree = "<group>"; };
+		2AA167182D33A014004D9DDD /* RUISlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUISlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,85 +40,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2AB7B0582D17DB7400D64FA0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2AB7B06B2D17DBBD00D64FA0 /* RUIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A59DB942D1B61C4003E0D44 /* ExampleViews */ = {
+		2AA1670F2D33A014004D9DDD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A59DB8E2D1949E5003E0D44 /* RUICircularProgressViewExample.swift */,
-				2A5C90DB2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift */,
-				2A5C90D52D1EA6B900DDF96F /* RUIProgressViewExample.swift */,
-				2A59DB922D1B61B9003E0D44 /* RUISliderExample.swift */,
+				2AA1670E2D33A014004D9DDD /* Colors.xcassets */,
 			);
-			path = ExampleViews;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		2A5C90D22D1E9EC600DDF96F /* Utility */ = {
+		2AA167142D33A014004D9DDD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				2A5C90D32D1E9EE400DDF96F /* Comparable+Extension.swift */,
-				2A5C90DD2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift */,
-				2A5C90DF2D2154DA00DDF96F /* ClosedRange+Extension.swift */,
-				2A5C90E12D22634A00DDF96F /* Color+Extension.swift */,
+				2AA167102D33A014004D9DDD /* BinaryFloatingPoint+Extension.swift */,
+				2AA167112D33A014004D9DDD /* ClosedRange+Extension.swift */,
+				2AA167122D33A014004D9DDD /* Color+Extension.swift */,
+				2AA167132D33A014004D9DDD /* Comparable+Extension.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		2AA167192D33A014004D9DDD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2AA167152D33A014004D9DDD /* RUICircularProgressView.swift */,
+				2AA167162D33A014004D9DDD /* RUIEmbeddedThumbSlider.swift */,
+				2AA167172D33A014004D9DDD /* RUIProgressView.swift */,
+				2AA167182D33A014004D9DDD /* RUISlider.swift */,
+				2AA167142D33A014004D9DDD /* Utility */,
+				2AA1670F2D33A014004D9DDD /* Resources */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		2AB7B0412D17DB0B00D64FA0 = {
 			isa = PBXGroup;
 			children = (
-				2AB7B0772D17DFC900D64FA0 /* Sources */,
-				2AB7B0892D17E04500D64FA0 /* Example */,
-				2AB7B04C2D17DB0B00D64FA0 /* Products */,
-				2AB7B06A2D17DBBD00D64FA0 /* Frameworks */,
+				2AA1670D2D33A014004D9DDD /* Package.swift */,
+				2AA167192D33A014004D9DDD /* Source */,
 			);
-			sourceTree = "<group>";
-		};
-		2AB7B04C2D17DB0B00D64FA0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */,
-				2AB7B05B2D17DB7400D64FA0 /* RUIKitExample.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2AB7B06A2D17DBBD00D64FA0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2AB7B0772D17DFC900D64FA0 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				2AB7B0752D17DFC900D64FA0 /* RUICircularProgressView.swift */,
-				2A5C90D92D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift */,
-				2A5C90D02D1E967C00DDF96F /* RUIProgressView.swift */,
-				2A59DB902D1B5E1E003E0D44 /* RUISlider.swift */,
-				2A5C90D22D1E9EC600DDF96F /* Utility */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		2AB7B0892D17E04500D64FA0 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				2AB7B0882D17E04500D64FA0 /* RUIKitExampleApp.swift */,
-				2AB7B0872D17E04500D64FA0 /* RUIKitExampleViewsList.swift */,
-				2A59DB942D1B61C4003E0D44 /* ExampleViews */,
-			);
-			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,27 +111,8 @@
 			);
 			name = RUIKit;
 			productName = RUIKit;
-			productReference = 2AB7B04B2D17DB0B00D64FA0 /* RUIKit.framework */;
+			productReference = 2AA1670C2D33A014004D9DDD /* RUIKit.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		2AB7B05A2D17DB7400D64FA0 /* RUIKitExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2AB7B0662D17DB7500D64FA0 /* Build configuration list for PBXNativeTarget "RUIKitExample" */;
-			buildPhases = (
-				2AB7B0572D17DB7400D64FA0 /* Sources */,
-				2AB7B0582D17DB7400D64FA0 /* Frameworks */,
-				2AB7B0592D17DB7400D64FA0 /* Resources */,
-				2AB7B06F2D17DBBD00D64FA0 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2AB7B06E2D17DBBD00D64FA0 /* PBXTargetDependency */,
-			);
-			name = RUIKitExample;
-			productName = RUIKitExample;
-			productReference = 2AB7B05B2D17DB7400D64FA0 /* RUIKitExample.app */;
-			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -221,9 +128,6 @@
 						CreatedOnToolsVersion = 15.4;
 						LastSwiftMigration = 1540;
 					};
-					2AB7B05A2D17DB7400D64FA0 = {
-						CreatedOnToolsVersion = 15.4;
-					};
 				};
 			};
 			buildConfigurationList = 2AB7B0452D17DB0B00D64FA0 /* Build configuration list for PBXProject "RUIKit" */;
@@ -235,12 +139,11 @@
 				Base,
 			);
 			mainGroup = 2AB7B0412D17DB0B00D64FA0;
-			productRefGroup = 2AB7B04C2D17DB0B00D64FA0 /* Products */;
+			productRefGroup = 2AB7B0412D17DB0B00D64FA0;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				2AB7B04A2D17DB0B00D64FA0 /* RUIKit */,
-				2AB7B05A2D17DB7400D64FA0 /* RUIKitExample */,
 			);
 		};
 /* End PBXProject section */
@@ -250,13 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2AB7B0592D17DB7400D64FA0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				2AA1671B2D33A014004D9DDD /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,39 +164,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AB7B0782D17DFC900D64FA0 /* RUICircularProgressView.swift in Sources */,
-				2A5C90DE2D21522500DDF96F /* BinaryFloatingPoint+Extension.swift in Sources */,
-				2A59DB912D1B5E1E003E0D44 /* RUISlider.swift in Sources */,
-				2A5C90D12D1E967C00DDF96F /* RUIProgressView.swift in Sources */,
-				2A5C90DA2D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift in Sources */,
-				2A5C90E02D2154DA00DDF96F /* ClosedRange+Extension.swift in Sources */,
-				2A5C90D42D1E9EE400DDF96F /* Comparable+Extension.swift in Sources */,
-				2A5C90E22D22634A00DDF96F /* Color+Extension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2AB7B0572D17DB7400D64FA0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A59DB952D1B61FD003E0D44 /* RUISliderExample.swift in Sources */,
-				2AB7B0912D17E20700D64FA0 /* RUIKitExampleApp.swift in Sources */,
-				2A5C90DC2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift in Sources */,
-				2A59DB8F2D1949E5003E0D44 /* RUICircularProgressViewExample.swift in Sources */,
-				2A5C90D62D1EA6B900DDF96F /* RUIProgressViewExample.swift in Sources */,
-				2AB7B0902D17E20300D64FA0 /* RUIKitExampleViewsList.swift in Sources */,
+				2AA167222D33A014004D9DDD /* RUIProgressView.swift in Sources */,
+				2AA167232D33A014004D9DDD /* RUISlider.swift in Sources */,
+				2AA1671F2D33A014004D9DDD /* Comparable+Extension.swift in Sources */,
+				2AA167212D33A014004D9DDD /* RUIEmbeddedThumbSlider.swift in Sources */,
+				2AA1671D2D33A014004D9DDD /* ClosedRange+Extension.swift in Sources */,
+				2AA167202D33A014004D9DDD /* RUICircularProgressView.swift in Sources */,
+				2AA1671C2D33A014004D9DDD /* BinaryFloatingPoint+Extension.swift in Sources */,
+				2AA1671E2D33A014004D9DDD /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2AB7B06E2D17DBBD00D64FA0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2AB7B04A2D17DB0B00D64FA0 /* RUIKit */;
-			targetProxy = 2AB7B06D2D17DBBD00D64FA0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2AB7B0502D17DB0B00D64FA0 /* Debug */ = {
@@ -496,64 +372,6 @@
 			};
 			name = Release;
 		};
-		2AB7B0672D17DB7500D64FA0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 83RMW7CPM5;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = leerachel5.ios.frameworks.RUIKitExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2AB7B0682D17DB7500D64FA0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 83RMW7CPM5;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = leerachel5.ios.frameworks.RUIKitExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -571,15 +389,6 @@
 			buildConfigurations = (
 				2AB7B0532D17DB0B00D64FA0 /* Debug */,
 				2AB7B0542D17DB0B00D64FA0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2AB7B0662D17DB7500D64FA0 /* Build configuration list for PBXNativeTarget "RUIKitExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2AB7B0672D17DB7500D64FA0 /* Debug */,
-				2AB7B0682D17DB7500D64FA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
