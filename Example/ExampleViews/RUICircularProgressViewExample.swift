@@ -13,20 +13,30 @@ struct RUICircularProgressViewExample: View {
     @State private var lineWidth = 20.0
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             circularProgressView
-                .padding(.bottom, 20)
             progressSlider
             lineWidthSlider
         }
         .frame(width: 300)
         .padding()
+        
+        descriptionView
+            .padding()
+        
+        Spacer()
     }
     
     private var circularProgressView: some View {
         ProgressView(value: progress, total: 100)
             .progressViewStyle(
-                RUICircularProgressViewStyle(lineWidth: lineWidth) {
+                RUICircularProgressViewStyle(
+                    strokeStyle: StrokeStyle(
+                        lineWidth: lineWidth,
+                        lineCap: .round,
+                        lineJoin: .round
+                    )
+                ) {
                     Text("👕")
                 }
             )
@@ -55,6 +65,17 @@ struct RUICircularProgressViewExample: View {
                 Text("40")
             }
             Text(String(format: "Line Width: %.2f", lineWidth))
+        }
+    }
+    
+    private var descriptionView: some View {
+        DisclosureGroup("Parameters") {
+            let description = LocalizedStringKey("""
+            • _**strokeStyle**_: The characteristics of the stroke that traces the progress path.
+            • _**colors**_: The sequence of colors used to indicate progress.
+            """)
+            Text(description)
+                .padding(.horizontal, 10)
         }
     }
 }

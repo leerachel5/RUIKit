@@ -17,18 +17,18 @@ public struct RUICircularProgressView<Content: View>: View {
     }
     
     @Binding private var progress: Double // Progress as a Double between 0 and 1
-    private var lineWidth: CGFloat
+    private var strokeStyle: StrokeStyle
     private var colors: [Color]
     private var content: Content
     
     public init(
         progress: Binding<Double>,
-        lineWidth: CGFloat,
+        strokeStyle: StrokeStyle,
         colors: [Color],
         @ViewBuilder content: @escaping () -> Content
     ) {
         self._progress = progress
-        self.lineWidth = lineWidth
+        self.strokeStyle = strokeStyle
         self.colors = colors
         self.content = content()
     }
@@ -36,7 +36,7 @@ public struct RUICircularProgressView<Content: View>: View {
     public var body: some View {
         GeometryReader { geometry in
             let diameter = min(geometry.size.width, geometry.size.height)
-            let contentWidth = (diameter - lineWidth * 2) / sqrt(2)
+            let contentWidth = (diameter - strokeStyle.lineWidth * 2) / sqrt(2)
             
             ZStack {
                 backgroundCircle
@@ -46,10 +46,6 @@ public struct RUICircularProgressView<Content: View>: View {
             .frame(width: diameter, height: diameter)
         }
         .aspectRatio(1, contentMode: .fit)
-    }
-    
-    private var strokeStyle: StrokeStyle {
-        StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round)
     }
     
     private var currentColor: Color {
@@ -70,9 +66,8 @@ public struct RUICircularProgressView<Content: View>: View {
         Circle()
             .trim(from: 0, to: CGFloat(progress))
             .stroke(currentColor, style: strokeStyle)
-            .padding(lineWidth / 2)
+            .padding(strokeStyle.lineWidth / 2)
             .rotationEffect(Angle(degrees: -90))
-            .animation(.easeOut(duration: 0.5), value: progress)
     }
     
     private func contentOverlay(diameter: CGFloat, contentWidth: CGFloat) -> some View {
@@ -85,16 +80,16 @@ public struct RUICircularProgressView<Content: View>: View {
 
 // MARK: - RUICircularProgressViewStyle
 public struct RUICircularProgressViewStyle<Content: View>: ProgressViewStyle {
-    var lineWidth: CGFloat
+    var strokeStyle: StrokeStyle
     var colors: [Color]
     var content: () -> Content
     
     public init(
-        lineWidth: CGFloat = 12,
+        strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 12),
         colors: [Color] = [.green],
         @ViewBuilder content: @escaping () -> Content = { EmptyView() }
     ) {
-        self.lineWidth = lineWidth
+        self.strokeStyle = strokeStyle
         self.colors = colors
         self.content = content
     }
@@ -102,7 +97,7 @@ public struct RUICircularProgressViewStyle<Content: View>: ProgressViewStyle {
     public func makeBody(configuration: Configuration) -> some View {
         RUICircularProgressView(
             progress: .constant(configuration.fractionCompleted ?? 0.0),
-            lineWidth: lineWidth,
+            strokeStyle: strokeStyle,
             colors: colors,
             content: content
         )
@@ -112,7 +107,15 @@ public struct RUICircularProgressViewStyle<Content: View>: ProgressViewStyle {
 struct RUICircularProgressView_Previews: PreviewProvider {
     static var previews: some View {
         let themeManager = ThemeManager()
-        RUICircularProgressView(progress: .constant(0.5), lineWidth: 16, colors: [.green]) {
+        RUICircularProgressView(
+            progress: .constant(0.5),
+            strokeStyle: StrokeStyle(
+                lineWidth: 16,
+                lineCap: .round,
+                lineJoin: .round
+            ),
+            colors: [.green]
+        ) {
             Text("👕")
         }
         .environmentObject(themeManager)
