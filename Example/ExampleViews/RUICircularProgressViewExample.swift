@@ -29,7 +29,7 @@ struct RUICircularProgressViewExample: View {
     private var circularProgressView: some View {
         ProgressView(value: progress, total: 100)
             .progressViewStyle(
-                RUICircularProgressViewStyle(lineWidth: lineWidth, backgroundColor: backgroundColor) {
+                RUICircularProgressViewStyle(lineWidth: lineWidth) {
                     Text("👕")
                 }
             )
@@ -64,8 +64,4 @@ struct RUICircularProgressViewExample: View {
     private var backgroundColorPicker: some View {
         ColorPicker("Background Circle Color", selection: $backgroundColor)
     }
-}
-
-#Preview {
-    RUICircularProgressViewExample()
 }

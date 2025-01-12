@@ -64,7 +64,3 @@ struct RUIEmbeddedThumbSliderExample: View {
         ColorPicker("Thumb Color", selection: $thumbColor)
     }
 }
-
-#Preview {
-    RUIEmbeddedThumbSliderExample()
-}

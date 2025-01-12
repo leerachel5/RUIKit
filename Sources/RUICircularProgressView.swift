@@ -5,27 +5,26 @@
 //  Created by Rachel Lee on 12/21/24.
 //
 
+import RThemeEngine
 import SwiftUI
 
 // MARK: - RUICircularProgressView
 public struct RUICircularProgressView<Content: View>: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @Binding private var progress: Double // Progress as a Double between 0 and 1
     private var lineWidth: CGFloat
     private var colors: [Color]
-    private var backgroundColor: Color
     private var content: Content
     
     public init(
         progress: Binding<Double>,
         lineWidth: CGFloat,
         colors: [Color],
-        backgroundColor: Color,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self._progress = progress
         self.lineWidth = lineWidth
         self.colors = colors
-        self.backgroundColor = backgroundColor
         self.content = content()
     }
     
@@ -59,7 +58,7 @@ public struct RUICircularProgressView<Content: View>: View {
     // MARK: - Helper Views for RUICircularProgressView
     private var backgroundCircle: some View {
         Circle()
-            .strokeBorder(backgroundColor, style: strokeStyle)
+            .strokeBorder(themeManager.selectedTheme.surfaceColor, style: strokeStyle)
     }
     
     private var progressCircle: some View {
@@ -84,18 +83,15 @@ public struct RUICircularProgressView<Content: View>: View {
 public struct RUICircularProgressViewStyle<Content: View>: ProgressViewStyle {
     var lineWidth: CGFloat
     var colors: [Color]
-    var backgroundColor: Color
     var content: () -> Content
     
     public init(
         lineWidth: CGFloat = 12,
         colors: [Color] = [.green],
-        backgroundColor: Color = .gray.opacity(0.3),
         @ViewBuilder content: @escaping () -> Content = { EmptyView() }
     ) {
         self.lineWidth = lineWidth
         self.colors = colors
-        self.backgroundColor = backgroundColor
         self.content = content
     }
     
@@ -104,14 +100,17 @@ public struct RUICircularProgressViewStyle<Content: View>: ProgressViewStyle {
             progress: .constant(configuration.fractionCompleted ?? 0.0),
             lineWidth: lineWidth,
             colors: colors,
-            backgroundColor: backgroundColor,
             content: content
         )
     }
 }
 
-#Preview {
-    RUICircularProgressView(progress: .constant(0.5), lineWidth: 16, colors: [.green], backgroundColor: .gray.opacity(0.3)) {
-        Text("👕")
+struct RUICircularProgressView_Previews: PreviewProvider {
+    static var previews: some View {
+        let themeManager = ThemeManager()
+        RUICircularProgressView(progress: .constant(0.5), lineWidth: 16, colors: [.green]) {
+            Text("👕")
+        }
+        .environmentObject(themeManager)
     }
 }

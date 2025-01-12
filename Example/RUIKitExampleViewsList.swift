@@ -5,6 +5,7 @@
 //  Created by Rachel Lee on 12/21/24.
 //
 
+import RThemeEngine
 import SwiftUI
 
 struct RUIKitExampleViewsList: View {
@@ -63,6 +64,10 @@ struct RUIKitExampleViewsList: View {
     }
 }
 
-#Preview {
-    RUIKitExampleViewsList()
+struct RUIKitExampleViewsList_Previews: PreviewProvider {
+    static var previews: some View {
+        let themeManager = ThemeManager()
+        RUIKitExampleViewsList()
+            .environmentObject(themeManager)
+    }
 }

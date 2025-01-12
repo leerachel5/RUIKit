@@ -71,9 +71,3 @@ struct SliderExample: View {
         Slider(value: $value)
     }
 }
-
-#Preview {
-    Group {
-        RUISliderExample()
-    }
-}

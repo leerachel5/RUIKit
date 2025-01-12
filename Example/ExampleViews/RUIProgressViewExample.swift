@@ -69,7 +69,3 @@ struct RUIProgressViewExample: View {
         return formatter
     }
 }
-
-#Preview {
-    RUIProgressViewExample()
-}
