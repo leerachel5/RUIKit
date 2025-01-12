@@ -14,15 +14,9 @@ let package = Package(
             targets: ["RUIKit"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/leerachel5/RThemeEngine.git", branch: "main")
-    ],
     targets: [
         .target(
-            name: "RUIKit",
-            dependencies: [
-                "RThemeEngine"
-            ]
+            name: "RUIKit"
         )
     ]
 )
