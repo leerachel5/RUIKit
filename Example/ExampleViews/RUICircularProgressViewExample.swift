@@ -11,7 +11,6 @@ import SwiftUI
 struct RUICircularProgressViewExample: View {
     @State private var progress = 50.0
     @State private var lineWidth = 20.0
-    @State private var backgroundColor = Color.gray.opacity(0.3)
     
     var body: some View {
         VStack {
@@ -19,8 +18,6 @@ struct RUICircularProgressViewExample: View {
                 .padding(.bottom, 20)
             progressSlider
             lineWidthSlider
-            backgroundColorPicker
-                .padding(.top, 12)
         }
         .frame(width: 300)
         .padding()
@@ -59,9 +56,5 @@ struct RUICircularProgressViewExample: View {
             }
             Text(String(format: "Line Width: %.2f", lineWidth))
         }
-    }
-    
-    private var backgroundColorPicker: some View {
-        ColorPicker("Background Circle Color", selection: $backgroundColor)
     }
 }
