@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RUIKitExampleViewsList: View {
+    @State var showingSettings: Bool = false
+    @State var darkModeIsEnabled: Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -25,6 +28,37 @@ struct RUIKitExampleViewsList: View {
                 }
             }
             .navigationTitle("RUIKit Examples")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    settingsButton
+                }
+            }
+            .sheet(isPresented: $showingSettings, content: {
+                NavigationStack {
+                    Form {
+                        Section(header: Text("General Settings")) {
+                            Toggle("Enable Dark Mode", isOn: $darkModeIsEnabled)
+                        }
+                    }
+                    .navigationTitle("Settings")
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel") {
+                                showingSettings = false
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    // MARK: Toolbar Items
+    private var settingsButton: some View {
+        Button(action: {
+            showingSettings.toggle()
+        }) {
+            Image(systemName: "gearshape")
         }
     }
 }
