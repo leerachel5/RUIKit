@@ -18,7 +18,9 @@ struct RUISliderExample: View {
             RUISlider(
                 value: $value,
                 in: 0...100,
-                trackHeight: trackHeight,
+                stroke: StrokeStyle(lineWidth: trackHeight, lineCap: .butt),
+                thumbSize: CGSize(width: 26, height: 26),
+                thumbShape: Rectangle(),
                 showValueLabel: showValueLabel
             )
             

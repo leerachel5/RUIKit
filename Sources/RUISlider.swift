@@ -1,5 +1,5 @@
 //
-//  RUIProgressIndicator.swift
+//  RUISlider.swift
 //  RUIKit
 //
 //  Created by Rachel Lee on 12/24/24.
@@ -8,15 +8,13 @@
 import RThemeEngine
 import SwiftUI
 
-public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
+public struct RUISlider<ThumbShape: Shape>: View {
     // MARK: Instance Properties
-    // Progress
     @Binding private var value: CGFloat
     private let bounds: ClosedRange<CGFloat>
     
     // Track
-    private let trackHeight: CGFloat
-    private let trackShape: TrackShape
+    private let stroke: StrokeStyle
     
     // Thumb
     private let thumbSize: CGSize
@@ -34,16 +32,14 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
     public init(
         value: Binding<CGFloat>,
         in bounds: ClosedRange<CGFloat> = 0...1,
-        trackHeight: CGFloat = 20,
-        trackShape: TrackShape = RoundedRectangle(cornerRadius: 10),
+        stroke: StrokeStyle = StrokeStyle(lineWidth: 20),
         thumbSize: CGSize = CGSize(width: 26, height: 26),
         thumbShape: ThumbShape = Circle(),
         showValueLabel: Bool = false
     ) {
         self._value = value
         self.bounds = bounds
-        self.trackHeight = trackHeight
-        self.trackShape = trackShape
+        self.stroke = stroke
         self.thumbSize = thumbSize
         self.thumbShape = thumbShape
         self.showValueLabel = showValueLabel
@@ -59,7 +55,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
                 RUIProgressView(
                     value: value,
                     in: bounds,
-                    stroke: StrokeStyle(lineWidth: trackHeight)
+                    stroke: stroke
                 )
 
                 // Thumb view
