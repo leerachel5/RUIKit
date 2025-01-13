@@ -59,8 +59,7 @@ public struct RUISlider<TrackShape: Shape, ThumbShape: Shape>: View {
                 RUIProgressView(
                     value: value,
                     in: bounds,
-                    height: trackHeight,
-                    shape: trackShape
+                    stroke: StrokeStyle(lineWidth: trackHeight)
                 )
 
                 // Thumb view
