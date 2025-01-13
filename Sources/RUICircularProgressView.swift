@@ -16,11 +16,13 @@ public struct RUICircularProgressView<Content: View>: View {
         themeManager.selectedTheme
     }
     
-    @Binding private var progress: Double // Progress as a Double between 0 and 1
+    // MARK: Instance Properties
+    @Binding private var progress: Double // Double between 0 and 1
     private var strokeStyle: StrokeStyle
     private var colors: [Color]
     private var content: Content
     
+    // MARK: Initializers
     public init(
         progress: Binding<Double>,
         strokeStyle: StrokeStyle,
@@ -33,19 +35,18 @@ public struct RUICircularProgressView<Content: View>: View {
         self.content = content()
     }
     
+    // MARK: Body
     public var body: some View {
         GeometryReader { geometry in
             let diameter = min(geometry.size.width, geometry.size.height)
-            let contentWidth = (diameter - strokeStyle.lineWidth * 2) / sqrt(2)
             
             ZStack {
+                contentOverlayBackground
                 backgroundCircle
                 progressCircle
-                contentOverlay(diameter: diameter, contentWidth: contentWidth)
+                contentOverlay(diameter: diameter)
             }
-            .frame(width: diameter, height: diameter)
         }
-        .aspectRatio(1, contentMode: .fit)
     }
     
     private var currentColor: Color {
@@ -56,7 +57,12 @@ public struct RUICircularProgressView<Content: View>: View {
         return colors[index]
     }
     
-    // MARK: - Helper Views for RUICircularProgressView
+    // MARK: - Subviews
+    private var contentOverlayBackground: some View {
+        theme.surfaceColor
+            .clipShape(Circle().inset(by: strokeStyle.lineWidth))
+    }
+    
     private var backgroundCircle: some View {
         Circle()
             .strokeBorder(Color(.secondarySystemBackground), style: strokeStyle)
@@ -70,8 +76,9 @@ public struct RUICircularProgressView<Content: View>: View {
             .rotationEffect(Angle(degrees: -90))
     }
     
-    private func contentOverlay(diameter: CGFloat, contentWidth: CGFloat) -> some View {
-        content
+    private func contentOverlay(diameter: CGFloat) -> some View {
+        let contentWidth = (diameter - strokeStyle.lineWidth * 2) / sqrt(2)
+        return content
             .font(.system(size: diameter * 0.5))
             .frame(width: contentWidth, height: contentWidth, alignment: .center)
     }
