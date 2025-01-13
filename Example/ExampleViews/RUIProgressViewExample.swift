@@ -17,7 +17,7 @@ struct RUIProgressViewExample: View {
             RUIProgressView(
                 value: value,
                 in: 0...1,
-                stroke: StrokeStyle(lineWidth: height, lineCap: .square)
+                stroke: StrokeStyle(lineWidth: height)
             )
             
             VStack(spacing: 20) {
