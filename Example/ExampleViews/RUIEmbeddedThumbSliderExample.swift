@@ -18,9 +18,7 @@ struct RUIEmbeddedThumbSliderExample: View {
             RUIEmbeddedThumbSlider(
                 value: $value,
                 in: 0...100,
-                height: trackHeight,
-                shape: RoundedRectangle(cornerRadius: trackHeight / 2),
-                thumbShape: RoundedRectangle(cornerRadius: trackHeight / 2),
+                stroke: StrokeStyle(lineWidth: trackHeight, lineCap: .round),
                 showValueLabel: showValueLabel
             )
             
