@@ -11,8 +11,8 @@ import SwiftUI
 public struct RUIProgressView: View {
     // MARK: Theme Manager
     @EnvironmentObject private var themeManager: ThemeManager
-    private var theme: ThemeProtocol {
-        themeManager.selectedTheme
+    private var theme: Theme {
+        themeManager.theme
     }
     
     // MARK: Instance Properties
@@ -85,6 +85,6 @@ struct RUIProgressView_Previews: PreviewProvider {
         let themeManager = ThemeManager()
         RUIProgressView(value: 0.5)
             .environmentObject(themeManager)
-            .setTheme(themeManager.selectedTheme)
+            .applyTheme(themeManager.theme)
     }
 }

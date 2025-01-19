@@ -97,6 +97,6 @@ struct RUISlider_Previews: PreviewProvider {
         let themeManager = ThemeManager()
         RUISlider(value: .constant(0.5))
             .environmentObject(themeManager)
-            .setTheme(themeManager.selectedTheme)
+            .applyTheme(themeManager.theme)
     }
 }

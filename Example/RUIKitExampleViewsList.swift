@@ -9,9 +9,10 @@ import RThemeEngine
 import SwiftUI
 
 struct RUIKitExampleViewsList: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @State var showingSettings: Bool = false
-    @State var darkModeIsEnabled: Bool = false
     
+    // MARK: Body
     var body: some View {
         NavigationStack {
             List {
@@ -34,23 +35,11 @@ struct RUIKitExampleViewsList: View {
                     settingsButton
                 }
             }
-            .sheet(isPresented: $showingSettings, content: {
-                NavigationStack {
-                    Form {
-                        Section(header: Text("General Settings")) {
-                            Toggle("Enable Dark Mode", isOn: $darkModeIsEnabled)
-                        }
-                    }
-                    .navigationTitle("Settings")
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                showingSettings = false
-                            }
-                        }
-                    }
-                }
-            })
+            .sheet(isPresented: $showingSettings) {
+                RUIExampleSettings(showingSettings: $showingSettings)
+                    .presentationDetents([.fraction(0.99)])
+                    .applyTheme(themeManager.theme)
+            }
         }
     }
     
@@ -70,6 +59,6 @@ struct RUIKitExampleViewsList_Previews: PreviewProvider {
         let themeManager = ThemeManager()
         RUIKitExampleViewsList()
             .environmentObject(themeManager)
-            .setTheme(themeManager.selectedTheme)
+            .applyTheme(themeManager.theme)
     }
 }

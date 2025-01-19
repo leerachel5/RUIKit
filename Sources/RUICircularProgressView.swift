@@ -12,8 +12,8 @@ import SwiftUI
 public struct RUICircularProgressView<Content: View>: View {
     // MARK: Theme Manager
     @EnvironmentObject private var themeManager: ThemeManager
-    private var theme: ThemeProtocol {
-        themeManager.selectedTheme
+    private var theme: Theme {
+        themeManager.theme
     }
     
     // MARK: Instance Properties
@@ -126,6 +126,6 @@ struct RUICircularProgressView_Previews: PreviewProvider {
             Text("👕")
         }
         .environmentObject(themeManager)
-        .setTheme(themeManager.selectedTheme)
+        .applyTheme(themeManager.theme)
     }
 }

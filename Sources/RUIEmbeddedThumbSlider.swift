@@ -11,8 +11,8 @@ import SwiftUI
 public struct RUIEmbeddedThumbSlider: View {
     // MARK: Theme Manager
     @EnvironmentObject private var themeManager: ThemeManager
-    private var theme: ThemeProtocol {
-        themeManager.selectedTheme
+    private var theme: Theme {
+        themeManager.theme
     }
     
     // MARK: Instance Properties
@@ -129,7 +129,7 @@ struct RUIEmbeddedThumbSlider_Previews: PreviewProvider {
         let themeManager = ThemeManager()
         RUIEmbeddedThumbSlider(value: .constant(0.2), showValueLabel: true)
             .environmentObject(themeManager)
-            .setTheme(themeManager.selectedTheme)
+            .applyTheme(themeManager.theme)
             .padding()
     }
 }
