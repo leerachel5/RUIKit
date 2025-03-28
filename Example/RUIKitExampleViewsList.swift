@@ -28,6 +28,9 @@ struct RUIKitExampleViewsList: View {
                 NavigationLink("RUIEmbeddedThumbSlider") {
                     RUIEmbeddedThumbSliderExample()
                 }
+                NavigationLink("RUIButton") {
+                    RUIButtonExample()
+                }
             }
             .navigationTitle("RUIKit Examples")
             .toolbar {

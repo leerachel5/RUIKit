@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A15779C2D96581F00AB5D4B /* RUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A15779B2D96581F00AB5D4B /* RUIButton.swift */; };
+		2A15779F2D96643B00AB5D4B /* RUIButtonExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A15779D2D96640800AB5D4B /* RUIButtonExample.swift */; };
 		2A59DB8F2D1949E5003E0D44 /* RUICircularProgressViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59DB8E2D1949E5003E0D44 /* RUICircularProgressViewExample.swift */; };
 		2A59DB912D1B5E1E003E0D44 /* RUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59DB902D1B5E1E003E0D44 /* RUISlider.swift */; };
 		2A59DB952D1B61FD003E0D44 /* RUISliderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59DB922D1B61B9003E0D44 /* RUISliderExample.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A15779B2D96581F00AB5D4B /* RUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIButton.swift; sourceTree = "<group>"; };
+		2A15779D2D96640800AB5D4B /* RUIButtonExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIButtonExample.swift; sourceTree = "<group>"; };
 		2A20B5702D33C2E200A8528A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		2A59DB8E2D1949E5003E0D44 /* RUICircularProgressViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUICircularProgressViewExample.swift; sourceTree = "<group>"; };
 		2A59DB902D1B5E1E003E0D44 /* RUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUISlider.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				2A5C90DB2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift */,
 				2A5C90D52D1EA6B900DDF96F /* RUIProgressViewExample.swift */,
 				2A59DB922D1B61B9003E0D44 /* RUISliderExample.swift */,
+				2A15779D2D96640800AB5D4B /* RUIButtonExample.swift */,
 			);
 			path = ExampleViews;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				2A5C90D92D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift */,
 				2A5C90D02D1E967C00DDF96F /* RUIProgressView.swift */,
 				2A59DB902D1B5E1E003E0D44 /* RUISlider.swift */,
+				2A15779B2D96581F00AB5D4B /* RUIButton.swift */,
 				2A5C90D22D1E9EC600DDF96F /* Utility */,
 			);
 			path = Sources;
@@ -285,6 +291,7 @@
 				2A5C90D12D1E967C00DDF96F /* RUIProgressView.swift in Sources */,
 				2A5C90DA2D1FF96400DDF96F /* RUIEmbeddedThumbSlider.swift in Sources */,
 				2A5C90E02D2154DA00DDF96F /* ClosedRange+Extension.swift in Sources */,
+				2A15779C2D96581F00AB5D4B /* RUIButton.swift in Sources */,
 				2A5C90D42D1E9EE400DDF96F /* Comparable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A59DB952D1B61FD003E0D44 /* RUISliderExample.swift in Sources */,
+				2A15779F2D96643B00AB5D4B /* RUIButtonExample.swift in Sources */,
 				2AB7B0912D17E20700D64FA0 /* RUIKitExampleApp.swift in Sources */,
 				2AF864E92D350EE1003DD546 /* RUIKitExampleSettings.swift in Sources */,
 				2A5C90DC2D1FFD7B00DDF96F /* RUIEmbeddedThumbSliderExample.swift in Sources */,
