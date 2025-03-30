@@ -31,6 +31,9 @@ struct RUIKitExampleViewsList: View {
                 NavigationLink("RUIButton") {
                     RUIButtonExample()
                 }
+                NavigationLink("RUITextField") {
+                    RUITextFieldExample()
+                }
             }
             .navigationTitle("RUIKit Examples")
             .toolbar {
