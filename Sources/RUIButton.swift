@@ -13,33 +13,40 @@ public enum RUIButtonVariant {
     case secondary
 }
 
+public enum RUIButtonTapAnimation {
+    case none
+    case scale
+    case bounce
+    case fade
+}
+
 public struct RUIButton: View {
     let titleKey: LocalizedStringKey
     let variant: RUIButtonVariant
-    let shouldAnimateTap: Bool
+    let tapAnimation: RUIButtonTapAnimation
     let action: () -> Void
     
     public init(
         _ titleKey: LocalizedStringKey,
         variant: RUIButtonVariant = .primary,
-        shouldAnimateTap: Bool = true,
+        tapAnimation: RUIButtonTapAnimation = .fade,
         action: @escaping () -> Void
     ) {
         self.titleKey = titleKey
         self.variant = variant
-        self.shouldAnimateTap = shouldAnimateTap
+        self.tapAnimation = tapAnimation
         self.action = action
     }
     
     public var body: some View {
         Button(titleKey, action: action)
-            .buttonStyle(.ruiButton(variant: variant, shouldAnimateTap: shouldAnimateTap))
+            .buttonStyle(.ruiButton(variant: variant, tapAnimation: tapAnimation))
     }
 }
 
 extension ButtonStyle where Self == RUIButtonStyle {
-    static func ruiButton(variant: RUIButtonVariant = .primary, shouldAnimateTap: Bool = true) -> RUIButtonStyle {
-        .init(variant: variant, shouldAnimateTap: shouldAnimateTap)
+    static func ruiButton(variant: RUIButtonVariant = .primary, tapAnimation: RUIButtonTapAnimation = .fade) -> RUIButtonStyle {
+        .init(variant: variant, tapAnimation: tapAnimation)
     }
 }
 
@@ -49,7 +56,7 @@ struct RUIButtonStyle: ButtonStyle {
     
     // MARK: Instance Properties
     let variant: RUIButtonVariant
-    let shouldAnimateTap: Bool
+    let tapAnimation: RUIButtonTapAnimation
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -61,8 +68,16 @@ struct RUIButtonStyle: ButtonStyle {
                 RoundedRectangle(cornerRadius: 10)
                     .strokeBorder(themeManager.theme.accentColor, lineWidth: 2)
             }
-            .scaleEffect(shouldAnimateTap && configuration.isPressed ? 0.9 : 1.0)
-            .animation(.interpolatingSpring(stiffness: 600, damping: 24), value: configuration.isPressed)
+            .scaleEffect(
+                tapAnimation.effect(for: configuration.isPressed)
+            )
+            .opacity(
+                tapAnimation.opacity(for: configuration.isPressed)
+            )
+            .animation(
+                tapAnimation.animation(for: configuration.isPressed),
+                value: configuration.isPressed
+            )
     }
     
     private var backgroundColor: Color {
@@ -83,6 +98,39 @@ struct RUIButtonStyle: ButtonStyle {
         return switch variant {
         case .primary: .clear
         case .secondary: themeManager.theme.accentColor
+        }
+    }
+}
+
+extension RUIButtonTapAnimation {
+    func animation(for isPressed: Bool) -> Animation? {
+        switch self {
+        case .none:
+            return nil
+        case .scale:
+            return .interpolatingSpring(stiffness: 600, damping: 24)
+        case .bounce:
+            return .interpolatingSpring(stiffness: 200, damping: 5)
+        case .fade:
+            return .easeInOut(duration: 0.2)
+        }
+    }
+    
+    func effect(for isPressed: Bool) -> CGFloat {
+        switch self {
+        case .none, .fade:
+            return 1.0
+        case .scale, .bounce:
+            return isPressed ? 0.9 : 1.0
+        }
+    }
+    
+    func opacity(for isPressed: Bool) -> Double {
+        switch self {
+        case .fade:
+            return isPressed ? 0.5 : 1.0
+        default:
+            return 1.0
         }
     }
 }

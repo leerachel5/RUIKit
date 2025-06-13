@@ -10,12 +10,12 @@ import RUIKit
 import SwiftUI
 
 struct RUIButtonExample: View {
-    @State private var shouldAnimateTap = false
+    @State private var tapAnimation: RUIButtonTapAnimation = .fade
     @State private var variant: RUIButtonVariant = .primary
     
     var body: some View {
         VStack {
-            RUIButton("Tap Me!", variant: variant, shouldAnimateTap: shouldAnimateTap) {}
+            RUIButton("Tap Me!", variant: variant, tapAnimation: tapAnimation) {}
                 .padding(.bottom, 32)
             
             configurations
@@ -34,7 +34,15 @@ struct RUIButtonExample: View {
                     }
                 }
             }
-            Toggle("Animate Tap", isOn: $shouldAnimateTap)
+            HStack {
+                Text("Tap Animation:")
+                Spacer()
+                Picker("Tap Animation", selection: $tapAnimation) {
+                    ForEach(RUIButtonTapAnimation.allCases, id: \.self) { animation in
+                        Text(animation.description).tag(animation)
+                    }
+                }
+            }
         }
     }
 }
@@ -53,6 +61,27 @@ extension RUIButtonVariant: CustomStringConvertible {
 extension RUIButtonVariant: CaseIterable {
     public static var allCases: [RUIButtonVariant] {
         [.primary, .secondary]
+    }
+}
+
+extension RUIButtonTapAnimation: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .none:
+            return "None"
+        case .scale:
+            return "Scale"
+        case .bounce:
+            return "Bounce"
+        case .fade:
+            return "Fade"
+        }
+    }
+}
+
+extension RUIButtonTapAnimation: CaseIterable {
+    public static var allCases: [RUIButtonTapAnimation] {
+        [.none, .scale, .bounce, .fade]
     }
 }
 
